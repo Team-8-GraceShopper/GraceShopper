@@ -1,7 +1,7 @@
 "use strict";
 
 const { db, models } = require("../server/db");
-const { User, ProductLine, Product } = models;
+const { User, ProductLine, Product, Cart, CartProduct } = models;
 
 /**
  * seed - this function clears the database, updates tables to
@@ -74,6 +74,32 @@ async function seed() {
       `seeded ${prodLine1.name}, ${prodLine2.name}, ${prodLine3.name}, ${prodLine4.name}`
     );
     console.log(`seeded ${prod1.name} and ${prod2.name}`);
+
+    // Creating Carts
+    const [cartCody, cartMurphy] = await Promise.all([
+      Cart.create({
+        userId: cody.id,
+      }),
+      Cart.create({
+        userId: murphy.id,
+      }),
+    ]);
+
+    // Adding products to the carts
+    await Promise.all([
+      CartProduct.create({
+        cartId: cartCody.id,
+        productId: prod1.id,
+        quantity: 2,
+      }),
+      CartProduct.create({
+        cartId: cartMurphy.id,
+        productId: prod2.id,
+        quantity: 1,
+      }),
+    ]);
+
+    console.log(`seeded carts for ${cody.username} and ${murphy.username}`);
   } catch (error) {
     console.error(error);
   } finally {

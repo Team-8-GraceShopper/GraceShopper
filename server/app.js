@@ -1,11 +1,21 @@
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
+const session = require("express-session");
+
 const app = express()
 module.exports = app
 
 // logging middleware
 app.use(morgan('dev'))
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "mySessionSecret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // body parsing middleware
 app.use(express.json())
