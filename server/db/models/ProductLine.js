@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 
 const ProductLine = db.define("productLine", {
-    id: {
+    id:  {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -11,7 +11,7 @@ const ProductLine = db.define("productLine", {
         type: Sequelize.STRING(255),
         allowNull: false,
     },
-    description: {
+    descrip: {
         type: Sequelize.TEXT,
     },
 });

@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 
 const Product = db.define("product", {
-    model_id: {
+    id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -14,34 +14,36 @@ const Product = db.define("product", {
             notEmpty: true,
         },
     },
-    description: {
+    descrip: {
         type: Sequelize.TEXT,
     },
-    image_url: {
+    imageUrl: {
         type: Sequelize.STRING,
     },
     price: {
         type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
         defaultValue: 0.0,
-        validate: {
-            allowNull: false,
-            isDec: true,
-        },
+        // validate: {
+        //     // allowNull: false,
+        //     isDec: true,
+        // },
     },
-    in_stock: {
+    stock: {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 0,
     },
-    product_line_id: {
+    prodLine_Id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-            model: "ProductLine",
-            key: "id",
-        },
+        // references: {
+        //     model: "ProductLine", 
+        //     key: "id",
+        // },
     },
+
 });
+
 
 module.exports = Product;
