@@ -1,46 +1,6 @@
 const router = require("express").Router();
 const { Cart, CartProduct, Product } = require("../db");
 
-// Route to add product to a user's cart
-// router.post("/cart", async (req, res, next) => {
-//   try {
-//     // Assuming the user is logged in and the user id is stored in the req.user object
-//     const userId = req.user.id;
-
-//     // Get the product information from the request body
-//     const { productId, quantity } = req.body;
-
-//     // Find the user's cart
-//     const cart = await Cart.findOne({ where: { userId } });
-
-//     // Check if the product already exists in the user's cart
-//     let cartProduct = await CartProduct.findOne({
-//       where: { cartId: cart.id, productId },
-//     });
-
-//     // If the product already exists in the cart, update the quantity
-//     if (cartProduct) {
-//       cartProduct.quantity += quantity;
-//       await cartProduct.save();
-//     } else {
-//       // If the product does not exist in the cart, create a new CartProduct entry
-//       cartProduct = await CartProduct.create({
-//         cartId: cart.id,
-//         productId,
-//         quantity,
-//       });
-//     }
-
-//     // Get the newly added product details
-//     const product = await Product.findByPk(productId);
-
-//     // Send the newly added product and the updated quantity as a response
-//     res.status(201).json({ product, quantity: cartProduct.quantity });
-//   } catch (error) {
-//     next(error);
-//   }
-// });
-
 router.post("/", async (req, res, next) => {
   try {
     const productId = req.body.productId;

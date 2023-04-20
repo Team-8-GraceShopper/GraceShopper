@@ -32,25 +32,3 @@ router.get('/me', async (req, res, next) => {
     next(ex);
   }
 });
-
-
-
-//  at async init(/home/phx_admin / Documents / FullstackAcademy / srPhase / graceShopper / GraceShopper / server / index.js: 12: 7) {
-//   name: 'SequelizeDatabaseError',
-//     parent: error: relation "ProductLine" does not exist
-//   {
-//     sql: 'CREATE TABLE IF NOT EXISTS "products" ("model_id"  SERIAL , "name" VARCHAR(255) NOT NULL, "description" TEXT, "image_url" VARCHAR(255), "price" DECIMAL(10,2) NOT NULL DEFAULT 0, "in_stock" INTEGER NOT NULL DEFAULT 0, "product_line_id" INTEGER NOT NULL REFERENCES "ProductLine" ("id") ON DELETE NO ACTION ON UPDATE CASCADE, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("model_id"));',
-//       parameters: undefined
-// } 
-
-//   original: error: relation "ProductLine" does not exist
-//   {
-//     sql: 'CREATE TABLE IF NOT EXISTS "products" ("model_id"  SERIAL , "name" VARCHAR(255) NOT NULL, "description" TEXT, "image_url" VARCHAR(255), "price" DECIMAL(10,2) NOT NULL DEFAULT 0, "in_stock" INTEGER NOT NULL DEFAULT 0, "product_line_id" INTEGER NOT NULL REFERENCES "ProductLine" ("id") ON DELETE NO ACTION ON UPDATE CASCADE, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("model_id"));',
-//       parameters: undefined
-//   }
-
-
-// sql: 'CREATE TABLE IF NOT EXISTS "products" ("model_id"  SERIAL , "name" VARCHAR(255) NOT NULL, "description" TEXT, "image_url" VARCHAR(255), "price" DECIMAL(10,2) NOT NULL DEFAULT 0, "in_stock" INTEGER NOT NULL DEFAULT 0, "product_line_id" INTEGER NOT NULL REFERENCES "ProductLine" ("id") ON DELETE NO ACTION ON UPDATE CASCADE, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "updatedAt" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY ("model_id"));',
-//   parameters: { }
-// }
-
