@@ -6,7 +6,6 @@ import { fetchSingleProduct, selectSingleProduct } from "./singleProductSlice";
 const SingleProduct = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
-  console.log(productId);
   const singleProduct = useSelector(selectSingleProduct);
   const { id, name, description, imageUrl, price, inStock } = singleProduct;
 
