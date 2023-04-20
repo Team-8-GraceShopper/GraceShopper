@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useParams, NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleProduct, selectSingleProduct } from "./singleProductSlice";
 
@@ -10,7 +10,7 @@ const SingleProduct = () => {
   const { id, name, description, imageUrl, price, inStock } = singleProduct;
 
   if (!singleProduct) {
-    return <p>Oops! Product not found.</p>;
+    return <p className="error">Oops! Product not found.</p>;
   }
 
   useEffect(() => {
@@ -18,20 +18,22 @@ const SingleProduct = () => {
   }, [dispatch]);
 
   return (
-    <div id="single-product" className="column">
-      <h1>{name}</h1>
-      <h2>{description}</h2>
-      <h3>{price}</h3>
-      <p>ID Number: {id}</p>
-      <p>Item in Stock: {inStock}</p>
+    <div className="single-product column">
+      <h1 className="product-name">{name}</h1>
+      <h2 className="product-description">{description}</h2>
+      <h3>Image:</h3>
+      <img className="product-image" src={imageUrl} />
+      <h3 className="product-price">${price}</h3>
+      <p className="product-info">ID Number: {id}</p>
+      <p className="product-info">Item in Stock: {inStock}</p>
 
       {description && description.length
-        ? description
-            .split("\n")
-            .map((line, idx) => <p key={`product story key:${idx}`}>{line}</p>)
+        ? description.split("\n").map((line, idx) => (
+            <p className="product-story" key={`product story key:${idx}`}>
+              {line}
+            </p>
+          ))
         : null}
-      <h3>Image:</h3>
-      <img src={imageUrl} />
     </div>
   );
 };

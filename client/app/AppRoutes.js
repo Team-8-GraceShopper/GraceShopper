@@ -6,6 +6,7 @@ import Home from "../features/home/Home";
 import { me } from "./store";
 import AllProducts from "../features/product/Product";
 import SingleProduct from "../features/singleProduct/singleProduct";
+import AllUsers from "../features/user/User";
 /**
  * COMPONENT
  */
@@ -41,6 +42,7 @@ const AppRoutes = () => {
           />
           <Route path="/products" element={<AllProducts />} />
           <Route path="/products/:productId" element={<SingleProduct />} />
+          <Route path="/users" element={<AllUsers />} />
         </Routes>
       )}
     </div>
