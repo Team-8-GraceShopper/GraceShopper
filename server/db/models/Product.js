@@ -1,5 +1,8 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
+//const ProductLine = require("../models/ProductLine");
+const CartProduct = require("../models/CartProduct");
+const Cart = require("../models/Cart");
 
 const Product = db.define("product", {
   id: {
@@ -10,7 +13,7 @@ const Product = db.define("product", {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
-  },
+  },  
   description: {
     type: Sequelize.TEXT,
     allowNull: false,
@@ -31,6 +34,8 @@ const Product = db.define("product", {
 
 Product.associate = (models) => {
   Product.belongsTo(models.ProductLine);
+  Product.belongsToMany(Cart, { through: CartProduct });
+  Cart.belongsToMany(Product, { through: CartProduct });
 };
 
 module.exports = Product;
