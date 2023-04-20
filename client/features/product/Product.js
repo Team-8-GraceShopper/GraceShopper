@@ -19,12 +19,14 @@ const AllProducts = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="products-container">
       {loading ? (
-        <p>Loading...</p>
+        <div className="loading">
+          <p>Loading...</p>
+        </div>
       ) : products && products.length > 0 ? (
         products.map((product) => (
-          <div className="product row" key={`All products: ${product.id}`}>
+          <div className="product" key={`All products: ${product.id}`}>
             <NavLink to={`/products/${product.id}`}>
               <img src={product.imageUrl} alt={product.name} />
               <p>{product.name}</p>
@@ -32,7 +34,9 @@ const AllProducts = () => {
           </div>
         ))
       ) : (
-        <p>No products to display</p>
+        <div className="no-products">
+          <p>No products to display</p>
+        </div>
       )}
     </div>
   );
