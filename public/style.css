@@ -89,6 +89,22 @@ PRODUCT PAGE
   color: #666;
 }
 
+.product-button {
+  display: inline-block;
+  background-color: #ff8c00;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.product-button:hover {
+  background-color: #ffa500;
+}
+
 /*
 
 
@@ -256,4 +272,115 @@ USER PAGE
 .user a {
   text-decoration: none;
   color: #000;
+}
+
+/*
+
+CART PAGE
+
+*/
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.cart-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.cart-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cart-item-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.cart-item-name {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.cart-item-price {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-quantity label {
+  font-size: 16px;
+  margin-right: 10px;
+  color: #666;
+}
+
+.cart-item-quantity-input {
+  width: 40px;
+  height: 30px;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #666;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.cart-item-quantity-input:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.subtotal {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px;
+  color: #333;
+}
+
+.no-products {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 100px;
+  color: #333;
 }
