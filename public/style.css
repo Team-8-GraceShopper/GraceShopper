@@ -384,3 +384,46 @@ CART PAGE
   margin-top: 100px;
   color: #333;
 }
+
+/*
+
+HOME PAGE
+
+*/
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slideshow-container {
+  width: 400px;
+  height: 400px;
+  margin: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slideshow {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  object-fit: contain;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

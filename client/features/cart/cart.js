@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchCarts, updateCart } from "./cartSlice";
+import { fetchCarts, updateCart, removeFromCart } from "./cartSlice";
 import { NavLink } from "react-router-dom";
 
 const AllCarts = () => {
@@ -38,7 +38,15 @@ const AllCarts = () => {
     } else {
       newQuantity -= 1;
     }
-    dispatch(updateCart(id, newQuantity));
+    if (newQuantity > 0) {
+      dispatch(updateCart(id, newQuantity));
+    } else {
+      dispatch(removeFromCart(id));
+    }
+  };
+
+  const handleRemoveFromCart = (id) => {
+    dispatch(removeFromCart(id));
   };
 
   return (
@@ -86,6 +94,9 @@ const AllCarts = () => {
                       onClick={() => handleQuantityChange(id, carts[id], false)}
                     >
                       -
+                    </button>
+                    <button onClick={() => handleRemoveFromCart(id)}>
+                      Remove
                     </button>
                   </div>
                 </div>
