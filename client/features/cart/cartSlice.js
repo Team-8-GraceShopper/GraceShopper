@@ -26,6 +26,15 @@ export const updateCart = (productId, quantity) => (dispatch) => {
   });
 };
 
+export const removeFromCart = (productId) => (dispatch) => {
+  dispatch({
+    type: "cart/productRemoved",
+    payload: {
+      id: productId,
+    },
+  });
+};
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -41,6 +50,10 @@ const cartSlice = createSlice({
     productUpdated(state, action) {
       const { id, quantity } = action.payload;
       state.items[id] = quantity;
+    },
+    productRemoved(state, action) {
+      const { id } = action.payload;
+      delete state.items[id];
     },
   },
   extraReducers: (builder) => {
