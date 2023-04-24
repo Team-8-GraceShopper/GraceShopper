@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCarts, updateCart, removeFromCart } from "./cartSlice";
+import { fetchProducts } from "../product/productSlice";
 import { NavLink } from "react-router-dom";
 
 const AllCarts = () => {
@@ -11,7 +12,7 @@ const AllCarts = () => {
   const [subTotal, setSubTotal] = useState(0);
 
   useEffect(() => {
-    dispatch(fetchCarts())
+    Promise.all([dispatch(fetchCarts()), dispatch(fetchProducts())])
       .then(() => {
         setLoading(false);
       })
