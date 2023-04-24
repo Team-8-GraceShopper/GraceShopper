@@ -89,4 +89,49 @@ router.put("/:id", async (req, res, next) => {
   }
 });
 
+router.get('/checkout', async (req, res, next) => {
+  try {
+    if (req.user) {
+      const cart = await Cart.findOne({
+        where: { userId: req.user.id },
+        include: {
+          model: CartProduct,
+          include: Product, // Fetch related product data
+        },
+      });
+
+      if (cart) {
+        res.status(200).send(cart);
+      } else {
+        res.status(404).send('Cart not found');
+      }
+    } else {
+      if (!req.session.cart) {
+        req.session.cart = [];
+      }
+
+      // Fetch product data for each product in the session cart
+      const products = await Product.findAll({
+        where: {
+          id: req.session.cart.map(item => item.productId),
+        },
+      });
+
+      // Attach product data to the session cart items
+      const sessionCartWithProductData = req.session.cart.map(item => {
+        const product = products.find(p => p.id === item.productId);
+        return {
+          ...item,
+          product,
+        };
+      });
+
+      res.status(200).send(sessionCartWithProductData);
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 module.exports = router;
