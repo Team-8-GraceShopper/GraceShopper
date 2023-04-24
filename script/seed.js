@@ -218,34 +218,3 @@ if (module === require.main) {
 }
 
 module.exports = seed;
-// const [prod1, prod2] = await Promise.all([
-//   Product.create({
-//     name: "prod1",
-//     description:
-//       "This stapler is capable of stapling through 250 sheets of paper, just like your TPS report cover sheet. It even comes with a red Swingline option for those who appreciate the classics.",
-//     imageUrl:
-//       "https://bostitchoffice.com/media/catalog/product/cache/8d622783d0b606912c99e4ab1818c82c/b/5/b5000-red_1_main_300dpi_1.jpg",
-//     price: 29.99,
-//     inStock: 100,
-//     productLineId: prodLine1.id,
-//   }),
-
-//   Product.create({
-//     name: "prod2",
-//     description:
-//       "Nobody wants to work on a Saturday, just like nobody wants this Swingline stapler. But hey, it gets the job done, right?",
-//     imageUrl:
-//       "https://bostitchoffice.com/media/catalog/product/cache/8d622783d0b606912c99e4ab1818c82c/b/4/b440-black_1_main_300dpi.jpg",
-//     price: 14.99,
-//     inStock: 250,
-//     productLineId: prodLine2.id,
-//   }),
-// ]);
-
-// const [prodLine1, prodLine2, prodLine3, prodLine4] =
-//   await ProductLine.bulkCreate([
-//     { name: "prodLine1", description: "descrip for prodLine1" },
-//     { name: "prodLine2", description: "descrip for prodLine2" },
-//     { name: "prodLine3", description: "descrip for prodLine3" },
-//     { name: "prodLine4", description: "descrip for prodLine4" },
-//   ]);

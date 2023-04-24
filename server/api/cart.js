@@ -89,7 +89,7 @@ router.put("/:id", async (req, res, next) => {
   }
 });
 
-router.get('/checkout', async (req, res, next) => {
+router.get("/checkout", async (req, res, next) => {
   try {
     if (req.user) {
       const cart = await Cart.findOne({
@@ -103,7 +103,7 @@ router.get('/checkout', async (req, res, next) => {
       if (cart) {
         res.status(200).send(cart);
       } else {
-        res.status(404).send('Cart not found');
+        res.status(404).send("Cart not found");
       }
     } else {
       if (!req.session.cart) {
@@ -113,13 +113,13 @@ router.get('/checkout', async (req, res, next) => {
       // Fetch product data for each product in the session cart
       const products = await Product.findAll({
         where: {
-          id: req.session.cart.map(item => item.productId),
+          id: req.session.cart.map((item) => item.productId),
         },
       });
 
       // Attach product data to the session cart items
-      const sessionCartWithProductData = req.session.cart.map(item => {
-        const product = products.find(p => p.id === item.productId);
+      const sessionCartWithProductData = req.session.cart.map((item) => {
+        const product = products.find((p) => p.id === item.productId);
         return {
           ...item,
           product,
@@ -132,6 +132,5 @@ router.get('/checkout', async (req, res, next) => {
     next(error);
   }
 });
-
 
 module.exports = router;

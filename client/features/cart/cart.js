@@ -107,6 +107,9 @@ const AllCarts = () => {
           <div className="subtotal">
             <p>Subtotal: ${Number.isNaN(subTotal) ? 0 : subTotal.toFixed(2)}</p>
           </div>
+          <NavLink to="/cart/checkout">
+            <button>Checkout</button>
+          </NavLink>
         </>
       ) : (
         <div className="no-products">
