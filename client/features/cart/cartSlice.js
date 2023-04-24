@@ -6,7 +6,7 @@ export const fetchCarts = createAsyncThunk("cart/fetch", async () => {
   return data;
 });
 
-export const addToCart = (productId, quantity) => (dispatch) => {
+export const addToCart = (productId) => (dispatch) => {
   dispatch({
     type: "cart/productAdded",
     payload: {
@@ -38,7 +38,7 @@ export const removeFromCart = (productId) => (dispatch) => {
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    items: {},
+    items: JSON.parse(localStorage.getItem("cartItems")) || {},
     status: "idle",
     error: null,
   },
@@ -46,20 +46,24 @@ const cartSlice = createSlice({
     productAdded(state, action) {
       const { id, quantity } = action.payload;
       state.items[id] = (state.items[id] || 0) + quantity;
+      localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
     productUpdated(state, action) {
       const { id, quantity } = action.payload;
       state.items[id] = quantity;
+      localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
     productRemoved(state, action) {
       const { id } = action.payload;
       delete state.items[id];
+      localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCarts.fulfilled, (state, action) => {
       state.status = "succeeded";
       state.items = action.payload;
+      localStorage.setItem("cartItems", JSON.stringify(state.items));
     });
   },
 });

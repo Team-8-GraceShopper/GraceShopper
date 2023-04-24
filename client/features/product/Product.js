@@ -10,7 +10,6 @@ const AllProducts = ({ product }) => {
   const [loading, setLoading] = useState(true);
 
   const handleAddToCart = (productId) => {
-    console.log("productId:", productId);
     dispatch(addToCart(productId));
   };
 
