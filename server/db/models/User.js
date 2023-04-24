@@ -77,5 +77,11 @@ User.beforeCreate(hashPassword);
 User.beforeUpdate(hashPassword);
 User.beforeBulkCreate((users) => Promise.all(users.map(hashPassword)));
 
+User.beforeSave(async (user) => {
+  const cart = await Cart.create();
+  cart.userId = user.id;
+  console.log(cart.toJSON());
+  await cart.save(); // Add this line to save the cart with updated userId
+});
+
 User.hasOne(Cart);
-Cart.belongsTo(User);
