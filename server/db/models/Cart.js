@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
-const CartProduct = require("./cartProduct");
+const CartProduct = require("./CartProduct");
 
 const Cart = db.define("cart", {});
 
