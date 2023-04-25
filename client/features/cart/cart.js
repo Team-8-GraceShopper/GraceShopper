@@ -9,7 +9,6 @@ const AllCarts = () => {
   const carts = useSelector((state) => state.cart.items);
   const products = useSelector((state) => state.product.list);
   const [loading, setLoading] = useState(true);
-  const [subTotal, setSubTotal] = useState(0);
 
   useEffect(() => {
     Promise.all([dispatch(fetchCarts()), dispatch(fetchProducts())])
@@ -21,7 +20,7 @@ const AllCarts = () => {
       });
   }, [dispatch]);
 
-  useEffect(() => {
+  const calculateSubTotal = () => {
     let total = 0;
     Object.keys(carts).forEach((id) => {
       const product = products.find((product) => product.id === parseInt(id));
@@ -29,8 +28,8 @@ const AllCarts = () => {
         total += carts[id] * product.price;
       }
     });
-    setSubTotal(total);
-  }, [carts, products]);
+    return total;
+  };
 
   const handleQuantityChange = (id, quantity, increase) => {
     let newQuantity = quantity;
@@ -60,52 +59,69 @@ const AllCarts = () => {
         <>
           <div className="cart-list">
             {Object.keys(carts).map((id) => {
-              const product = products.find(
-                (product) => product.id === parseInt(id)
-              );
-              return (
-                <div className="cart-item" key={`All carts: ${id}`}>
-                  <NavLink to={`/products/${id}`}>
-                    <img
-                      className="cart-item-image"
-                      src={product.imageUrl}
-                      alt={product.name}
-                    />
-                    <div className="cart-item-details">
-                      <p className="cart-item-name">{product.name}</p>
-                      <p className="cart-item-price">Price: ${product.price}</p>
+              if (carts[id] > 0) {
+                const product = products.find(
+                  (product) => product.id === parseInt(id)
+                );
+                return (
+                  <div className="cart-item" key={`All carts: ${id}`}>
+                    <NavLink to={`/products/${id}`}>
+                      <img
+                        className="cart-item-image"
+                        src={product.imageUrl}
+                        alt={product.name}
+                      />
+                      <div className="cart-item-details">
+                        <p className="cart-item-name">{product.name}</p>
+                        <p className="cart-item-price">
+                          Price: ${product.price}
+                        </p>
+                      </div>
+                    </NavLink>
+                    <div className="cart-item-quantity">
+                      <input
+                        type="number"
+                        className="cart-item-quantity-input"
+                        min={1}
+                        value={carts[id]}
+                        onChange={(e) =>
+                          handleQuantityChange(
+                            id,
+                            parseInt(e.target.value),
+                            null
+                          )
+                        }
+                      />
+                      <button
+                        onClick={() =>
+                          handleQuantityChange(id, carts[id], true)
+                        }
+                      >
+                        +
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleQuantityChange(id, carts[id], false)
+                        }
+                      >
+                        -
+                      </button>
+                      <button onClick={() => handleRemoveFromCart(id)}>
+                        Remove
+                      </button>
                     </div>
-                  </NavLink>
-                  <div className="cart-item-quantity">
-                    <input
-                      type="number"
-                      className="cart-item-quantity-input"
-                      min={1}
-                      value={carts[id]}
-                      onChange={(e) =>
-                        handleQuantityChange(id, parseInt(e.target.value), null)
-                      }
-                    />
-                    <button
-                      onClick={() => handleQuantityChange(id, carts[id], true)}
-                    >
-                      +
-                    </button>
-                    <button
-                      onClick={() => handleQuantityChange(id, carts[id], false)}
-                    >
-                      -
-                    </button>
-                    <button onClick={() => handleRemoveFromCart(id)}>
-                      Remove
-                    </button>
                   </div>
-                </div>
-              );
+                );
+              }
             })}
           </div>
           <div className="subtotal">
-            <p>Subtotal: ${Number.isNaN(subTotal) ? 0 : subTotal.toFixed(2)}</p>
+            <p>
+              Subtotal: $
+              {Number.isNaN(calculateSubTotal())
+                ? 0
+                : calculateSubTotal().toFixed(2)}
+            </p>
           </div>
           <NavLink to="/cart/checkout">
             <button>Checkout</button>
