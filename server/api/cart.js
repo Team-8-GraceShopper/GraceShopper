@@ -1,5 +1,7 @@
 const router = require("express").Router();
-const { Cart, CartProduct, Product } = require("../db");
+const Product = require("../db/models/Product");
+const Cart = require("../db/models/Cart");
+const CartProduct = require("../db/models/CartProduct");
 
 router.post("/", async (req, res, next) => {
   try {

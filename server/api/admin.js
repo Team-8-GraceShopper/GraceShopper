@@ -1,9 +1,8 @@
 const router = require("express").Router();
-const { Product } = require("../db");
-const { isUser, isAdmin } = require("./authMiddleware");
+const Product = require("../db/models/Product");
+
 module.exports = router;
 
-// Get all products
 router.get("/", async (req, res, next) => {
   try {
     const products = await Product.findAll();
@@ -13,7 +12,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// Get a specific product by ID
 router.get("/:id", async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
@@ -23,10 +21,9 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-// Update a product
-router.put("/:itemId", isUser, isAdmin, async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   try {
-    const product = await Product.findByPk(req.params.itemId);
+    const product = await Product.findByPk(req.params.id);
     await product.update(req.body);
     res.sendStatus(200);
   } catch (error) {
@@ -34,8 +31,7 @@ router.put("/:itemId", isUser, isAdmin, async (req, res, next) => {
   }
 });
 
-// Create a new product
-router.post("/", isUser, isAdmin, async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   try {
     const product = await Product.create(req.body);
     res.send(product);
@@ -44,10 +40,9 @@ router.post("/", isUser, isAdmin, async (req, res, next) => {
   }
 });
 
-// Delete a product
-router.delete("/:itemId", isUser, isAdmin, async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
-    const product = await Product.findByPk(req.params.itemId);
+    const product = await Product.findByPk(req.params.id);
     if (product) {
       await product.destroy();
       res.sendStatus(204);

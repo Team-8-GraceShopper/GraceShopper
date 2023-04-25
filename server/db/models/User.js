@@ -85,3 +85,4 @@ User.beforeSave(async (user) => {
 });
 
 User.hasOne(Cart);
+Cart.belongsTo(User);
