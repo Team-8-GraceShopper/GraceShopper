@@ -9,6 +9,8 @@ import SingleProduct from "../features/singleProduct/singleProduct";
 import AllUsers from "../features/user/User";
 import AllCarts from "../features/cart/cart";
 import AdminProduct from "../features/admin/admin";
+import Checkout from "../features/checkout/checkout";
+import Confirmation from "../features/confirmation/confirmation";
 /**
  * COMPONENT
  */
@@ -32,6 +34,8 @@ const AppRoutes = () => {
           <Route path="/users" element={<AllUsers />} />
           <Route path="/cart" element={<AllCarts />} />
           <Route path="/admin" element={<AdminProduct />} />
+          <Route path="/cart/checkout" element={<Checkout />} />
+          <Route path="/cart/confirmation" element={<Confirmation />} />
         </Routes>
       ) : (
         <Routes>
@@ -51,6 +55,8 @@ const AppRoutes = () => {
           <Route path="/products/:productId" element={<SingleProduct />} />
           <Route path="/users" element={<AllUsers />} />
           <Route path="/cart" element={<AllCarts />} />
+          <Route path="/admin" element={<AdminProduct />} />
+          <Route path="/cart/checkout" element={<Checkout />} />
         </Routes>
       )}
     </div>
