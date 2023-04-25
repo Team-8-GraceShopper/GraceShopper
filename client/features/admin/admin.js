@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  fetchProducts,
-  addProduct,
-  updateProduct,
-  deleteProduct,
+  fetchAdminProducts,
+  addAdminProduct,
+  updateAdminProduct,
+  deleteAdminProduct,
 } from "./adminSlice";
 
-const ProductManagement = () => {
+const AdminProduct = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.admin.products);
-  const isAdmin = useSelector((state) => state.auth.isAdmin);
+  const isAdmin = useSelector((state) => state.auth.me);
 
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [editedProduct, setEditedProduct] = useState({});
+  const [editedProduct, setEditedProduct] = useState({
+    name: "",
+    description: "",
+    price: 0,
+  });
 
   useEffect(() => {
     if (isAdmin) {
-      dispatch(fetchProducts());
+      dispatch(fetchAdminProducts());
     }
   }, [dispatch, isAdmin]);
 
@@ -32,13 +36,23 @@ const ProductManagement = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateProduct({ id: editedProduct.id, product: editedProduct }));
+    if (selectedProduct) {
+      dispatch(
+        updateAdminProduct({ id: selectedProduct.id, product: editedProduct })
+      );
+    } else {
+      dispatch(addAdminProduct(editedProduct));
+    }
     setSelectedProduct(null);
+    setEditedProduct({ name: "", description: "", price: 0 });
   };
 
   const handleDeleteProduct = () => {
-    dispatch(deleteProduct(editedProduct.id));
-    setSelectedProduct(null);
+    if (selectedProduct) {
+      dispatch(deleteAdminProduct(selectedProduct.id));
+      setSelectedProduct(null);
+      setEditedProduct({ name: "", description: "", price: 0 });
+    }
   };
 
   if (!isAdmin) {
@@ -66,6 +80,16 @@ const ProductManagement = () => {
               </li>
             ))}
           </ul>
+          <button
+            type="button"
+            className="btn btn-success mt-3"
+            onClick={() => {
+              setSelectedProduct(null);
+              setEditedProduct({ name: "", description: "", price: 0 });
+            }}
+          >
+            Add Product
+          </button>
         </div>
         {selectedProduct && (
           <div className="col-md-6">
@@ -105,7 +129,6 @@ const ProductManagement = () => {
                   className="form-control"
                   id="price"
                   name="price"
-                  step="0.01"
                   value={editedProduct.price}
                   onChange={handleChange}
                 />
@@ -115,10 +138,20 @@ const ProductManagement = () => {
               </button>
               <button
                 type="button"
-                className="btn btn-danger ml-2"
+                className="btn btn-danger ms-3"
                 onClick={handleDeleteProduct}
               >
                 Delete
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary ms-3"
+                onClick={() => {
+                  setSelectedProduct(null);
+                  setEditedProduct({ name: "", description: "", price: 0 });
+                }}
+              >
+                Cancel
               </button>
             </form>
           </div>
@@ -128,4 +161,4 @@ const ProductManagement = () => {
   );
 };
 
-export default ProductManagement;
+export default AdminProduct;

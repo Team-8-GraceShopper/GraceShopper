@@ -1,34 +1,34 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchProducts = createAsyncThunk(
+export const fetchAdminProducts = createAsyncThunk(
   "admin/fetchProducts",
   async () => {
-    const { data } = await axios.get("/api/products");
+    const { data } = await axios.get("/api/admin");
     return data;
   }
 );
 
-export const addProduct = createAsyncThunk(
+export const addAdminProduct = createAsyncThunk(
   "admin/addProduct",
   async (product) => {
-    const { data } = await axios.post("/api/products", product);
+    const { data } = await axios.post(`/api/admin/${id}`, product);
     return data;
   }
 );
 
-export const updateProduct = createAsyncThunk(
+export const updateAdminProduct = createAsyncThunk(
   "admin/updateProduct",
   async ({ id, product }) => {
-    const { data } = await axios.put(`/api/products/${id}`, product);
+    const { data } = await axios.put(`/api/admin/${id}`, product);
     return data;
   }
 );
 
-export const deleteProduct = createAsyncThunk(
+export const deleteAdminProduct = createAsyncThunk(
   "admin/deleteProduct",
   async (id) => {
-    await axios.delete(`/api/products/${id}`);
+    await axios.delete(`/api/admin/${id}`);
     return id;
   }
 );
@@ -43,14 +43,14 @@ const adminSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProducts.fulfilled, (state, action) => {
+      .addCase(fetchAdminProducts.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.products = action.payload;
       })
-      .addCase(addProduct.fulfilled, (state, action) => {
+      .addCase(addAdminProduct.fulfilled, (state, action) => {
         state.products.push(action.payload);
       })
-      .addCase(updateProduct.fulfilled, (state, action) => {
+      .addCase(updateAdminProduct.fulfilled, (state, action) => {
         const index = state.products.findIndex(
           (product) => product.id === action.payload.id
         );
@@ -58,7 +58,7 @@ const adminSlice = createSlice({
           state.products[index] = action.payload;
         }
       })
-      .addCase(deleteProduct.fulfilled, (state, action) => {
+      .addCase(deleteAdminProduct.fulfilled, (state, action) => {
         state.products = state.products.filter(
           (product) => product.id !== action.payload
         );
