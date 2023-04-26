@@ -1,45 +1,69 @@
-# FS-App-Template
+Star Wars Starfighters E-commerce Website
+Welcome to our e-commerce website where you can purchase different starfighters and spaceships from the Star Wars Galaxy. Our website is built using React.js for the front-end and Node.js for the back-end, with JavaScript, HTML, and CSS.
 
-## Setup
+Features
+Browse and purchase different starfighters and spaceships from the Star Wars franchise
+View product details and images
+Add products to cart and checkout securely
+User authentication and authorization for secure access to user-specific data
+Admin dashboard to manage products, orders, and users
+Installation
+Clone this repository
+Install the required dependencies by running the following command:
+Copy code
+npm install
+Start the server and client using the following command:
+arduino
+Copy code
+createdb team8_graceshopper
+npm run seed
+npm run start:dev
+Usage
+Visit http://localhost:8080/ to access our e-commerce website. You can browse our wide selection of products, add them to your cart, and checkout securely.
 
-To use this as boilerplate, you'll need to take the following steps:
+To access the admin dashboard, go to http://localhost:8080/admin and login using your admin credentials.
 
-- Don't fork or clone this repo! Instead, create a new, empty
-  directory on your machine and `git init` (or create an empty repo on
-  Github and clone it to your local machine)
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-- Now you will have to add the fs-app-template as a remote and merge it into your own repository.
+# <h1> Star Wars Starfighters E-commerce Website </h1>
 
-```
-git remote add boilermaker git@github.com:FullstackAcademy/fs-app-template-v2.git
-git fetch boilermaker
-git merge boilermaker/main
-git branch -m master main
-```
+<p style="font-size: 18px;">Welcome to our e-commerce website where you can purchase different starfighters and spaceships from the Star Wars Galaxy. Our website is built using React.js for the front-end and Node.js for the back-end, with JavaScript, HTML, and CSS.</p>
 
-## Customize
+## <h2> Features </h2>
 
-Now that you've got the code, follow these steps to get acclimated:
+<p style="font-size: 16px;">Browse and purchase different starfighters and spaceships from the Star Wars franchise</p>
+<p style="font-size: 16px;">View product details and images</p>
+<p style="font-size: 16px;">Add products to cart and checkout securely</p>
+<p style="font-size: 16px;">User authentication and authorization for secure access to user-specific data</p>
+<p style="font-size: 16px;">Admin dashboard to manage products, orders, and users</p>
 
-- Update project name and description in `package.json`
-- `npm install`
-- Create two postgres databases (`MY_APP_NAME` should match the `name`
-  parameter in `package.json`):
-- These commands will create both your **development** and **test** databases
+## <h2> Installation </h2>
 
-```
-createdb <YOUR APP NAME HERE FROM package.json>
-createdb <YOUR APP NAME HERE FROM package.json>-test
-```
+<ol style="font-size: 14px;">
+  <li>Clone this repository</li>
+  <li>Install the required dependencies by running the following command:</li>
+</ol>
 
-- By default, running `npm test` will use your test database, while
-  regular development uses development database
+npm install
 
-## Start
-
-Sync and seed your database by running `npm run seed`. Running `npm run start:dev` will make great things happen!
-
-- start:dev will both start your server and build your client side files using webpack
-- start:dev:logger is the same as start:dev, but you will see your SQL queries (can be helpful for debugging)
-- start:dev:seed will start your server and also seed your database (this is useful when you are making schema changes and you don't want to run your seed script separately)
-  //test
+<ol style="font-size: 14px;">
+  <li>Start the server and client using the following command:</li>
+</ol>
+Copy code
+createdb team8_graceshopper
+npm run seed
+npm run start:dev
+<h2> Usage </h2>
+<p style="font-size: 16px;">Visit http://localhost:8080/ to access our e-commerce website. You can browse our wide selection of products, add them to your cart, and checkout securely.</p>
+<p style="font-size: 16px;">To access the admin dashboard, go to http://localhost:8080/admin and login using your admin credentials.</p>
+<h2> Contributing </h2>
+<p style="font-size: 16px;">We welcome contributions from anyone who is interested in improving our project. If you would like to contribute, please follow these steps:</p>
+<ol style="font-size: 14px;">
+  <li>Fork this repository</li>
+  <li>Create a new branch for your feature or bug fix</li>
+  <li>Commit your changes and push the branch to your fork</li>
+  <li>Create a pull request</li>
+</ol>
+<h2> License </h2>
+<p style="font-size: 16px;">This project is licensed under the MIT License. See the LICENSE file for details.</p>
