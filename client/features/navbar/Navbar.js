@@ -14,8 +14,8 @@ const Navbar = () => {
 
   return (
     <div>
-      <h1>Star Fighters Galore</h1>
-      <nav>
+      <h1 className="main-header">Star Fighters Galore</h1>
+      <nav className="navbar">
         {isLoggedIn ? (
           <div>
             {/* The navbar will show these links after you log in */}
