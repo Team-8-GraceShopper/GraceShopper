@@ -8,9 +8,6 @@ const Confirmation = () => {
   return (
     <div className="confirmation">
       <div class="card">
-        {/* <button class="dismiss" type="button">
-          x
-        </button> */}
         <div class="header">
           <div class="image">
             <svg
