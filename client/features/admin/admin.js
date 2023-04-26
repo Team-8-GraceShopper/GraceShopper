@@ -133,6 +133,32 @@ const AdminProduct = () => {
                   onChange={handleChange}
                 />
               </div>
+              <div className="mb-3">
+                <label htmlFor="inStock" className="form-label">
+                  Stock:
+                </label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="inStock"
+                  name="inStock"
+                  value={editedProduct.inStock}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="imageUrl" className="form-label">
+                  Image:
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="imageUrl"
+                  name="imageUrl"
+                  value={editedProduct.imageUrl}
+                  onChange={handleChange}
+                />
+              </div>
               <button type="submit" className="btn btn-primary">
                 Save
               </button>
