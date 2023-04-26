@@ -9,194 +9,220 @@ async function seed() {
 
   // Creating Users
   const [cody, murphy] = await Promise.all([
-    User.create({ username: "cody", password: "123", email: "cody@gmail.com", isAdmin: false }),
-    User.create({ username: "murphy", password: "123", email: "murphy@gmail.com", isAdmin: true }),
+    User.create({
+      username: "cody",
+      password: "123",
+      email: "cody@gmail.com",
+      isAdmin: false,
+    }),
+    User.create({
+      username: "murphy",
+      password: "123",
+      email: "murphy@gmail.com",
+      isAdmin: true,
+    }),
   ]);
 
   // Creating ProductLines
 
-  const [
-    officeEssentials,
-    fireproof,
-    flair,
-    weekendWarrior,
-    basementCollection,
-  ] = await ProductLine.bulkCreate([
+  const [rebels, republic, empire, separatists] = await ProductLine.bulkCreate([
     {
-      name: "The Office Essentials",
-      description: "Products that every office needs",
+      name: "The Rebel Alliance",
+      description:
+        "A resistance movement formed by various species and factions across the galaxy to oppose the tyrannical rule of the Galactic Empire",
     },
     {
-      name: "The Fireproof",
-      description: "Products designed to withstand high temperatures",
+      name: "The Grand Republic",
+      description: "We are all the Republic",
     },
     {
-      name: "The Flair",
-      description: "Products that add a touch of style to your workspace",
+      name: "The Galactic Empire",
+      description:
+        "Working to expand our authority and establish order throughout the galaxy through the might of our military, and quashing any resistance or rebellion that threatened our rule",
     },
     {
-      name: "The Weekend Warrior",
-      description: "Products that help you get through those weekend projects",
-    },
-    {
-      name: "The Basement Collection",
-      description: "Products for the home workshop or garage",
+      name: "The Separatist Alliance",
+      description:
+        "Corporations led by Count Dooku to secede from the Galactic Republic and establish their own independent government",
     },
   ]);
 
   // Creating Products
 
   const [
-    tpsReportStapler,
-    saturdaySwingline,
-    fireproofStapler,
-    basementDweller,
-    bobSpecial,
-    bareMinimumStapler,
-    flairStapler,
-    glitchFixer,
-    lumbergsChoice,
-    officeSpaceTheStapler,
-    miltonsRevenge,
+    deathstar,
+    executer,
+    xwing,
+    millenniumFalcon,
+    starDestroyer,
+    ywing,
+    tieFighter,
+    tieInterceptor,
+    droidTri,
+    tradeBattleship,
+    dookusSailor,
     petersPick,
-    samirsSecretWeapon,
+    republicStarCruiser,
+    nabooStarfighter,
+    arc170,
   ] = await Promise.all([
     Product.create({
-      name: "TPS Report Stapler",
+      name: "Death Star",
       description:
-        "This stapler is capable of stapling through 250 sheets of paper, just like your TPS report cover sheet. It even comes with a red Swingline option for those who appreciate the classics.",
+        "The Death Star is the Empire's battle station which has ability to use a kyber-crystal powered laser to destroy entire planets.",
       imageUrl:
-        "https://mir-s3-cdn-cf.behance.net/project_modules/disp/2fd33721936819.56045277877f7.png",
-      price: 29.99,
+        "https://p7.hiclipart.com/preview/951/709/266/grand-moff-tarkin-death-star-stormtrooper-star-wars-galactic-empire-death-star.jpg",
+      price: 8999.99,
+      inStock: 2,
+      productLineId: empire.id,
+    }),
+    Product.create({
+      name: "Executer",
+      description:
+        "The Executor serves as Darth Vader's flagship during the events of The Empire Strikes Back, leading the Death Squadron against the Rebel Alliance on Hoth and in pursuit of the Millennium Falcon.",
+      imageUrl:
+        "https://w7.pngwing.com/pngs/658/94/png-transparent-super-star-destroyer-executor-grand-admiral-thrawn-star-wars-airplane-death-star-airplane-weapon-star-destroyer.png",
+      price: 1599.99,
       inStock: 100,
-      productLineId: officeEssentials.id,
+      productLineId: empire.id,
     }),
     Product.create({
-      name: "Saturday Swingline",
+      name: "X-wing Starfighter",
       description:
-        "Nobody wants to work on a Saturday, just like nobody wants this Swingline stapler. But hey, it gets the job done, right?",
+        "The X-wing is a versatile Rebel Alliance starfighter that balances speed with firepower. Armed with four laser cannons and two proton torpedo launchers, the X-wing can take on anything the Empire throws at it.",
       imageUrl:
-        "https://media.accobrands.com/media/560-560/375713.jpg?width=1360px&height=898px",
-      price: 14.99,
-      inStock: 250,
-      productLineId: officeEssentials.id,
+        "https://static.independent.co.uk/2022/05/10/15/05224039-7f8ad3b9-b0a1-430e-9ab1-2a6134bedcd7.jpg?quality=75&width=990&crop=5776%3A4336%2Csmart&auto=webp",
+      price: 210.0,
+      inStock: 150,
+      productLineId: rebels.id,
     }),
     Product.create({
-      name: "Fireproof Stapler",
+      name: "Millennium Falcon",
       description:
-        "When the building's on fire, this stapler keeps on stapling. It might even be the only thing left after the flames have subsided.",
+        "The Millenium Falcon is a YT-1300 freighter that has been heavily modified to become faster, stronger, and more powerful. The ship was made in Corellia, the homeworld of Han Solo.",
       imageUrl:
-        "https://images.thdstatic.com/productImages/7f1e355c-f919-40a6-9d3b-b40c2781f895/svn/dewalt-staple-guns-dwht74841d-64_600.jpg",
-      price: 49.99,
-      inStock: 50,
-      productLineId: fireproof.id,
+        "https://www.pngkit.com/png/detail/12-126143_millennium-falcon-star-wars-png-photo-star-wars.png",
+      price: 9999.99,
+      inStock: 1,
+      productLineId: rebels.id,
     }),
     Product.create({
-      name: "Basement Dweller",
+      name: "Star Destoryer",
       description:
-        "This stapler is perfect for the employee whose desk is in the basement, far away from the sunlight and his colleagues. It even comes with a matching stapler remover!",
+        "A Star Destroyer is a dagger-shaped type of capital ship that were used by the Galactic Republic, the Galactic Empire, the First Order, and the Sith Eternal",
       imageUrl:
-        "https://www.schoolaids.com/web/image/product.template/38277/image_1024?unique=fb47a3d",
-      price: 19.99,
-      inStock: 75,
-      productLineId: basementCollection.id,
+        "https://www.pngfind.com/pngs/m/678-6782698_star-destroyer-png-transparent-png.png",
+      price: 5000.0,
+      inStock: 25000,
+      productLineId: empire.id,
     }),
     Product.create({
-      name: "Bob's Special",
+      name: "Y-wing",
       description:
-        "This stapler is for the Bobs. You know, the consultants. It doesn't do much, but it looks pretty good on a resume.",
-      imageUrl: "https://content.etilize.com/1300/1010066440.jpg",
-      price: 9.99,
+        "The Y-wing is a workhorse starfighter has been in use since the Clone Wars. Used for dogfights and for bombing runs against capital ships and ground targets",
+      imageUrl:
+        "https://e7.pngegg.com/pngimages/251/348/png-clipart-clone-wars-y-wing-x-wing-starfighter-a-wing-star-wars-star-wars-fighter-aircraft-clone-wars.png",
+      price: 99.99,
       inStock: 500,
-      productLineId: basementCollection.id,
+      productLineId: rebels.id,
     }),
     Product.create({
-      name: "Bare Minimum Stapler",
-      description:
-        "If you feel that the bare minimum is enough, then okay. But some people choose to wear more and we encourage that. But hey, at least this stapler won't disappoint you!",
-      imageUrl:
-        "https://content.oppictures.com/Master_Images/Master_Variants/Variant_500/784280.JPG",
-      price: 4.99,
-      inStock: 1000,
-      productLineId: weekendWarrior.id,
-    }),
-    Product.create({
-      name: "Flair Stapler",
-      description:
-        "You can never have enough flair, especially when it comes to your stapler. This one is decked out in the appropriate number of pieces of flair, so you know it means business.",
-      imageUrl:
-        "https://www.ldproducts.com/media/catalog/product/cache/ae0f6c9d4182962579989c7d9a447cb1/1/0/1010066477.jpg",
-      price: 14.99,
-      inStock: 500,
-      productLineId: flair.id,
-    }),
-    Product.create({
-      name: "Glitch Fixer",
+      name: "Tie Figther",
       description:
         "Built specifically for the accounting department, this stapler can fix any glitch. Just make sure you have your TPS report handy!",
       imageUrl:
-        "https://media.accobrands.com/media/560-560/45581.jpg?width=680px&height=449px",
-      price: 24.99,
+        "https://www.pngmart.com/files/22/Star-Wars-TIE-Fighter-PNG-Isolated-Transparent-Picture.png",
+      price: 999.99,
       inStock: 100,
-      productLineId: flair.id,
+      productLineId: empire.id,
     }),
     Product.create({
-      name: "Lumberg's Choice",
+      name: "Tie Interceptor",
       description:
-        "Umm, yeah. This stapler is perfect for those who like to, umm, follow the rules. And wear TPS report cover sheets. Yeah.",
-      imageUrl: "https://m.media-amazon.com/images/I/51AWrURGnqL.jpg",
-      price: 9.99,
-      inStock: 250,
-      productLineId: weekendWarrior.id,
-    }),
-    Product.create({
-      name: "Office Space: The Stapler",
-      description:
-        "This is the stapler that started it all. It might not look like much, but it's a classic. And sometimes, that's all you need.",
+        "The TIE interceptor is the lightest, fastest, and most responsive starfighter in space. It can use its high acceleration and turn rates to outmaneuver an enemy fighter, evade missiles, and dodge incoming cannon fire from capital ship turrets.",
       imageUrl:
-        "https://media.accobrands.com/media/560-560/491504.jpg?width=1360px&height=898px",
+        "https://w7.pngwing.com/pngs/386/694/png-transparent-anakin-skywalker-star-wars-tie-fighter-tie-avanzado-star-wars-thumbnail.png",
       price: 99.99,
       inStock: 10,
-      productLineId: officeEssentials.id,
+      productLineId: empire.id,
     }),
     Product.create({
-      name: "Milton's Revenge",
+      name: "Droid Tri-fighter",
       description:
-        "This stapler is for those who've had enough of their bosses stealing their red Swingline staplers. It's just as reliable, but with a little bit of edge.",
-      imageUrl:
-        "https://sc04.alicdn.com/kf/H175a9a0043fb43e4be026107525fa9bcF.jpg",
-      price: 29.99,
-      inStock: 50,
-      productLineId: fireproof.id,
-    }),
-    Product.create({
-      name: "Peter's Pick",
-      description:
-        "Peter may not care about his job, but he does care about his stapler. This one is his pick, and it should be yours too.",
-      imageUrl:
-        "https://de2wfhoo6xqi5.cloudfront.net/orig/c6f/44a/0860bdbb1e2d9b5ea0506ab5e53fd3a48b.jpg",
-      price: 19.99,
+        "PThe droid tri-fighter is a weapon of the Trade Federation, which has aligned itself with the Separatist forces. The droid is armed with laser missiles that contain buzz droids, which attach to enemy ships and tear them apart.",
+      imageUrl: "https://m.media-amazon.com/images/I/51MnDIeSxTL.jpg",
+      price: 499.99,
       inStock: 100,
-      productLineId: officeEssentials.id,
+      productLineId: separatists.id,
     }),
     Product.create({
-      name: "Samir's Secret Weapon",
+      name: "Trade Federation battleship ",
       description:
-        "Samir may have a hard time with the printer, but with this stapler, he's unstoppable. It's his secret weapon, and now it can be yours.",
+        "Trade Federation Landing Ships transport the Trade Federation's invasion forces to planets surfaces.(Made to Order)",
       imageUrl:
-        "https://content.oppictures.com/Master_Images/Master_Variants/Variant_500/784216.JPG",
-      price: 44.99,
-      inStock: 1,
-      productLineId: weekendWarrior.id,
+        "https://i.pinimg.com/originals/f5/1e/2d/f51e2d2dfa74e1ca023960b64df8a9db.jpg",
+      price: 799.99,
+      inStock: 30000,
+      productLineId: separatists.id,
+    }),
+    Product.create({
+      name: "Dooku's solar sailer",
+      description:
+        "The solar sailer is a luxurious yacht commissioned by Dooku from his allies on Geonosis prior to the outbreak of the Clone Wars.",
+      imageUrl: "https://swrpggm.com/wp-content/uploads/2020/12/SSFE.png",
+      price: 1999.99,
+      inStock: 5,
+      productLineId: separatists.id,
+    }),
+    Product.create({
+      name: "Jedi Starfighter",
+      description:
+        "A starfighter for pilots with Force-aided reflexes, stripping down the fighters’ systems and making their controls as responsive as possible. ",
+      imageUrl:
+        "https://media.sketchfab.com/models/053a14f9353a4f4aa6300fa0a398ffab/thumbnails/10320578cdc4444dac0171ca0ea2e368/9da15018c3a04066820a9665abb913d2.jpeg",
+      price: 5999.99,
+      inStock: 100,
+      productLineId: republic.id,
+    }),
+    Product.create({
+      name: "Republic Star Cruiser",
+      description:
+        "Republic Cruisers are generally unarmed and feature a red color scheme as a symbol of neutrality and diplomatic immunity.",
+      imageUrl:
+        "https://www.iconarchive.com/download/i61913/jonathan-rey/star-wars-vehicles/Republic-Attack-Cruiser.ico",
+      price: 557.99,
+      inStock: 2000,
+      productLineId: republic.id,
+    }),
+    Product.create({
+      name: "Naboo N-1 Starfighter",
+      description:
+        "Protecting the skies and space around Naboo is the N-1 starfighter. Its sleek design exemplifies the philosophy of art and function witnessed throughout Naboo technology.",
+      imageUrl:
+        "https://cdn.rebrickable.com/media/thumbs/mocs/moc-112176.jpg/1000x800.jpg",
+      price: 500.0,
+      inStock: 5,
+      productLineId: republic.id,
+    }),
+    Product.create({
+      name: "ARC-170 starfighter",
+      description:
+        "A heavy-duty model of starfighter used by the Galactic Republic during the Clone Wars and was considered the latest in fighter technology",
+      imageUrl:
+        "https://thumbs.coleka.com/media/item/201710/01/revenge-of-the-sith-arc-170-starfighter-001.webp",
+      price: 549.99,
+      inStock: 500,
+      productLineId: republic.id,
     }),
   ]);
 
   console.log(`seeded ${cody.username} and ${murphy.username}`);
   console.log(
-    `seeded ${officeEssentials.name}, ${flair.name}, ${fireproof.name}, ${weekendWarrior.name}, ${basementCollection.name}`
+    `seeded ${rebels.name}, ${republic.name}, ${empire.name}, ${separatists.name}`
   );
   console.log(
-    `seeded ${tpsReportStapler.name}, ${saturdaySwingline.name},${fireproofStapler.name},${basementDweller.name},${bobSpecial.name},${bareMinimumStapler.name},${flairStapler.name},${glitchFixer.name},${lumbergsChoice.name},${officeSpaceTheStapler.name},${miltonsRevenge.name},${petersPick.name},${samirsSecretWeapon.name}`
+    `seeded ${deathstar.name}, ${executer.name},${xwing.name},${millenniumFalcon.name},${starDestroyer.name},${ywing.name},${tieFighter.name},${tieInterceptor.name},${droidTri.name},${dookusSailor.name},${tradeBattleship.name},${petersPick.name},${republicStarCruiser.name}, ${nabooStarfighter.name}`,
+    `${arc170.name}`
   );
 
   await db.close();
