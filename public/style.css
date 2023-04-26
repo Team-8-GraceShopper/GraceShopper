@@ -1,12 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
 body {
-  font-family: sans-serif;
+  font-family: "Roboto Mono", monospace;
   background-image: url("dockingBay.webp");
   background-position: center;
-  color: yellow;
+  color: #ffe81f;
 }
 
 a {
   text-decoration: none;
+  color: #ffd700;
 }
 
 label {
@@ -16,6 +19,11 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.2rem;
+  color: #ffe81f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 form div {
@@ -23,20 +31,16 @@ form div {
   display: inline-block;
 }
 
-/*
+/* PRODUCT PAGE */
 
-
-PRODUCT PAGE
-
-
-*/
 .loading {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 200px;
   font-size: 24px;
-  color: #666;
+  color: #ffe81f;
+  font-family: "Star Jedi", sans-serif;
 }
 
 .products-container {
@@ -51,9 +55,9 @@ PRODUCT PAGE
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: #000;
   border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
@@ -71,16 +75,18 @@ PRODUCT PAGE
   font-weight: bold;
   margin-bottom: 1rem;
   text-align: center;
+  color: #ffd700;
+  font-family: "Star Jedi", sans-serif;
 }
 
 .product a {
   text-decoration: none;
-  color: #000;
+  color: #ffe81f;
 }
 
 .product:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
 }
 
 .no-products {
@@ -89,13 +95,14 @@ PRODUCT PAGE
   align-items: center;
   height: 200px;
   font-size: 24px;
-  color: #666;
+  color: #ffe81f;
+  font-family: "Star Jedi", sans-serif;
 }
 
 .product-button {
   display: inline-block;
-  background-color: #ff8c00;
-  color: #fff;
+  background-color: #ffd700;
+  color: #000;
   font-size: 1.2rem;
   font-weight: 500;
   border-radius: 5px;
@@ -105,16 +112,11 @@ PRODUCT PAGE
 }
 
 .product-button:hover {
-  background-color: #ffa500;
+  background-color: #c3b091;
 }
 
-/*
+/* SINGLE PRODUCT PAGE */
 
-
-SINGLE PRODUCT PAGE
-
-
-*/
 .single-product {
   display: flex;
   flex-direction: column;
@@ -122,9 +124,9 @@ SINGLE PRODUCT PAGE
   align-items: center;
   margin-top: 2rem;
   padding: 2rem;
-  background-color: #fff;
+  background-color: #000;
   border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
 }
 
 .product-name {
@@ -132,14 +134,16 @@ SINGLE PRODUCT PAGE
   font-weight: bold;
   text-align: center;
   margin-bottom: 1rem;
-  color: #333;
+  color: #ffd700;
+  font-family: "Star Jedi", "Roboto Mono", sans-serif;
 }
 
 .product-description {
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 1rem;
-  color: #666;
+  color: #c3b091;
+  font-family: "Star Jedi", "Roboto Mono", sans-serif;
 }
 
 .product-price {
@@ -147,14 +151,17 @@ SINGLE PRODUCT PAGE
   font-weight: bold;
   text-align: center;
   margin-bottom: 1rem;
-  color: #333;
+  color: #ffd700;
+  font-family: "Star Jedi", "Roboto Mono", sans-serif;
 }
 
 .product-info {
-  font-size: 1rem;
+  font-size: 1.5rem;
   text-align: center;
   margin-bottom: 0.5rem;
-  color: #666;
+  color: #ffe81f;
+  text-shadow: 2px 2px #000;
+  font-family: "Roboto Mono", monospace;
 }
 
 .product-image {
@@ -167,7 +174,8 @@ SINGLE PRODUCT PAGE
 .product-story:not(:last-child) {
   margin-bottom: 1rem;
   text-align: justify;
-  color: #666;
+  color: #eee;
+  font-family: "Roboto Mono", monospace;
 }
 
 .error {
@@ -187,14 +195,15 @@ AUTH FORM
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f2f6fa;
+  background-color: #1b1b1b;
+  font-family: "Roboto Mono", monospace;
 }
 
 .auth-form {
-  background-color: white;
+  background-color: #1d1d1d;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
   width: 400px;
 }
 
@@ -206,7 +215,7 @@ AUTH FORM
   display: block;
   margin-bottom: 5px;
   font-size: 14px;
-  color: #354052;
+  color: #ffd700;
 }
 
 .form-field input {
@@ -214,14 +223,14 @@ AUTH FORM
   padding: 12px;
   border-radius: 8px;
   border: none;
-  background-color: #f5f8fa;
+  background-color: #282828;
   font-size: 16px;
-  color: #354052;
+  color: #fff;
 }
 
 .form-field button[type="submit"] {
-  background-color: #007bff;
-  color: white;
+  background-color: #ffd700;
+  color: #1b1b1b;
   padding: 14px 24px;
   border: none;
   border-radius: 8px;
@@ -234,11 +243,11 @@ AUTH FORM
 }
 
 .form-field button[type="submit"]:hover {
-  background-color: #0069d9;
+  background-color: #c3b091;
 }
 
 .error-message {
-  color: red;
+  color: #ffd700;
   margin-top: 10px;
   font-size: 14px;
 }
@@ -249,9 +258,9 @@ USER PAGE
 
 
 */
-
 .all-users-container {
   margin: 20px;
+  font-family: "Roboto Mono", monospace;
 }
 
 .user {
@@ -259,8 +268,10 @@ USER PAGE
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #c3b091; /* light brown */
   margin-bottom: 10px;
+  background-color: #1f1f1f; /* black */
+  color: #ffd700; /* yellow */
 }
 
 .user p {
@@ -274,6 +285,15 @@ USER PAGE
 
 .user a {
   text-decoration: none;
+  color: #ffd700; /* yellow */
+}
+
+.user:hover {
+  background-color: #c3b091; /* light brown */
+  color: #000;
+}
+
+.user:hover a {
   color: #000;
 }
 
@@ -303,7 +323,7 @@ CART PAGE
   flex-direction: column;
   align-items: center;
   width: 250px;
-  background-color: #f1f1f1;
+  background-color: #080808;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
@@ -333,13 +353,15 @@ CART PAGE
   font-weight: bold;
   text-align: center;
   margin-bottom: 10px;
-  color: #333;
+  color: #ffd700;
+  font-family: "Roboto Mono", monospace;
 }
 
 .cart-item-price {
   font-size: 16px;
   margin-bottom: 10px;
-  color: #666;
+  color: #ffd700;
+  font-family: "Roboto Mono", monospace;
 }
 
 .cart-item-quantity {
@@ -350,7 +372,8 @@ CART PAGE
 .cart-item-quantity label {
   font-size: 16px;
   margin-right: 10px;
-  color: #666;
+  color: #ddd;
+  font-family: "Roboto Mono", monospace;
 }
 
 .cart-item-quantity-input {
@@ -364,6 +387,7 @@ CART PAGE
   color: #666;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
+  font-family: "Roboto Mono", monospace;
 }
 
 .cart-item-quantity-input:focus {
@@ -377,7 +401,8 @@ CART PAGE
   font-size: 24px;
   font-weight: bold;
   margin-right: 20px;
-  color: #333;
+  color: #fff;
+  font-family: "Roboto Mono", monospace;
 }
 
 .no-products {
@@ -385,7 +410,8 @@ CART PAGE
   font-weight: bold;
   text-align: center;
   margin-top: 100px;
-  color: #333;
+  color: #fff;
+  font-family: "Roboto Mono", monospace;
 }
 
 /*
@@ -436,124 +462,76 @@ HOME PAGE
 ADMIN PAGE
 
 */
-/* Container */
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 24px;
+/* Admin error */
+.admin-error {
+  background-color: red;
+  color: white;
+  padding: 10px;
 }
 
-/* Headings */
-h1,
-h2 {
+/* Forms */
+.form-label {
+  font-size: 18px;
   font-weight: bold;
-  text-align: center;
-  margin-bottom: 24px;
 }
 
-/* List */
-.list-group {
-  margin-bottom: 24px;
+.form-control {
+  border-radius: 0;
+  border-color: yellow;
 }
 
-.list-group-item {
-  cursor: pointer;
-  border: 1px solid #ccc;
-  padding: 12px;
-  margin-bottom: -1px;
-  transition: all 0.3s ease-in-out;
-}
-
-.list-group-item:hover {
-  background-color: #f5f5f5;
-}
-
-.list-group-item.active {
-  background-color: #007bff;
-  color: #fff;
-  border-color: #007bff;
+.form-check-label {
+  font-size: 18px;
+  font-weight: normal;
 }
 
 /* Buttons */
 .btn {
-  border-radius: 4px;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: all 0.3s ease-in-out;
+  border-radius: 0;
+  border-color: yellow;
 }
 
 .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  color: #fff;
+  background-color: yellow;
+  color: black;
 }
 
 .btn-primary:hover {
-  background-color: #0062cc;
-  border-color: #005cbf;
-}
-
-.btn-success {
-  background-color: #28a745;
-  border-color: #28a745;
-  color: #fff;
-}
-
-.btn-success:hover {
-  background-color: #218838;
-  border-color: #1e7e34;
+  background-color: black;
+  color: yellow;
 }
 
 .btn-danger {
-  background-color: #dc3545;
-  border-color: #dc3545;
-  color: #fff;
+  background-color: red;
+  color: white;
 }
 
 .btn-danger:hover {
-  background-color: #c82333;
-  border-color: #bd2130;
+  background-color: white;
+  color: red;
 }
 
-.btn-secondary {
-  background-color: #6c757d;
-  border-color: #6c757d;
-  color: #fff;
+/* Product list */
+.list-group-item {
+  cursor: pointer;
+  border-color: yellow;
 }
 
-.btn-secondary:hover {
-  background-color: #5a6268;
-  border-color: #545b62;
+.list-group-item.active {
+  background-color: yellow;
+  color: black;
 }
 
-/* Form */
-form {
-  border: 1px solid #ccc;
-  padding: 24px;
+/* Product form */
+.col-md-6 {
+  margin-top: 50px;
 }
 
-form label {
+h2 {
+  font-size: 36px;
   font-weight: bold;
 }
 
-form input,
-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 24px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  transition: all 0.3s ease-in-out;
-}
-
-form input:focus,
-form textarea:focus {
-  outline: none;
-  border-color: #007bff;
-}
-
-form button[type="submit"],
-form button[type="button"] {
-  margin-top: 24px;
-  margin-right: 12px;
+textarea {
+  resize: vertical;
 }
