@@ -8,19 +8,12 @@ async function seed() {
   console.log("db synced!");
 
   // Creating Users
-  const [cody, murphy] = await Promise.all([
-    User.create({
-      username: "cody",
-      password: "123",
-      email: "cody@gmail.com",
-      isAdmin: false,
-    }),
-    User.create({
-      username: "murphy",
-      password: "123",
-      email: "murphy@gmail.com",
-      isAdmin: true,
-    }),
+  const [cody, murphy, skywalker, vader, yoda ] = await Promise.all([
+    User.create({ username: "cody", password: "123", email: "cody@gmail.com", isAdmin: false }),
+    User.create({ username: "murphy", password: "123", email: "murphy@gmail.com", isAdmin: true }),
+    User.create({ username: "skywalker", password: "123", email: "skywalker@gmail.com", isAdmin: true}),
+    User.create({ username: "vader", password: "123", email: "vader@gmail.com", isAdmin: false}),
+    User.create({ username: "yoda", password: "123", email: "yoda@gmail.com", isAdmin: true})
   ]);
 
   // Creating ProductLines
@@ -216,7 +209,7 @@ async function seed() {
     }),
   ]);
 
-  console.log(`seeded ${cody.username} and ${murphy.username}`);
+  console.log(`seeded ${cody.username} and ${murphy.username} and ${skywalker.username} , ${yoda.username} , ${vader.username}`);
   console.log(
     `seeded ${rebels.name}, ${republic.name}, ${empire.name}, ${separatists.name}`
   );
