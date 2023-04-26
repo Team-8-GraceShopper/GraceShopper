@@ -1,39 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchProducts } from "../product/productSlice";
+import React from "react";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const username = useSelector((state) => state.auth.me.username);
-  const products = useSelector((state) => state.product.list);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentSlide((currentSlide + 1) % products.length);
-    }, 3000);
-    return () => clearInterval(intervalId);
-  }, [currentSlide, products.length]);
-
   return (
-    <div className="home-container">
-      <h3>Welcome, {username}</h3>
-      {products.length > 0 && (
-        <div className="slideshow-container">
-          <div className="slideshow">
-            <img
-              src={products[currentSlide].imageUrl}
-              alt={products[currentSlide].name}
-              className="slide"
-            />
+    <>
+      <div>
+        <h1>Home</h1>
+        <div class="fade"></div>
+
+        <section class="star-wars">
+          <div class="crawl">
+            <div class="title">
+              <p>Episode 2301</p>
+              <h1>Team 8 Graceshopper</h1>
+            </div>
+
+            <p>
+            It is a dark time for the Cohort. Although Junior Phase has been destroyed, Fullstack mentors have driven the Cohort forces from their hidden base and pursued them across the galaxy.
+            </p>
+
+            <p>
+            Evading the dreaded Fullstack Starfleet, a group of Cohort fighters led by Devonte, Hussein and Vincent have established a new secret base on the remote ice world of Github.
+            </p>
+
+            <p>
+            The evil lord Darth Orlando, obsessed with finding one word functions, has dispatched thousands of remote probes into the far reaches of space....
+            </p>
           </div>
-        </div>
-      )}
-    </div>
+        </section>
+      </div>
+    </>
   );
 };
 
