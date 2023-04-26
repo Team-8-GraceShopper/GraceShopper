@@ -1,31 +1,3 @@
-Star Wars Starfighters E-commerce Website
-Welcome to our e-commerce website where you can purchase different starfighters and spaceships from the Star Wars Galaxy. Our website is built using React.js for the front-end and Node.js for the back-end, with JavaScript, HTML, and CSS.
-
-Features
-Browse and purchase different starfighters and spaceships from the Star Wars franchise
-View product details and images
-Add products to cart and checkout securely
-User authentication and authorization for secure access to user-specific data
-Admin dashboard to manage products, orders, and users
-Installation
-Clone this repository
-Install the required dependencies by running the following command:
-Copy code
-npm install
-Start the server and client using the following command:
-arduino
-Copy code
-createdb team8_graceshopper
-npm run seed
-npm run start:dev
-Usage
-Visit http://localhost:8080/ to access our e-commerce website. You can browse our wide selection of products, add them to your cart, and checkout securely.
-
-To access the admin dashboard, go to http://localhost:8080/admin and login using your admin credentials.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
 # <h1> Star Wars Starfighters E-commerce Website </h1>
 
 <p style="font-size: 18px;">Welcome to our e-commerce website where you can purchase different starfighters and spaceships from the Star Wars Galaxy. Our website is built using React.js for the front-end and Node.js for the back-end, with JavaScript, HTML, and CSS.</p>
@@ -45,15 +17,15 @@ This project is licensed under the MIT License. See the LICENSE file for details
   <li>Install the required dependencies by running the following command:</li>
 </ol>
 
-npm install
+<p>npm install</p>
 
 <ol style="font-size: 14px;">
   <li>Start the server and client using the following command:</li>
 </ol>
 Copy code
-createdb team8_graceshopper
-npm run seed
-npm run start:dev
+<p>createdb team8_graceshopper</p>
+<p>npm run seed</p>
+<p>npm run start:dev</p>
 <h2> Usage </h2>
 <p style="font-size: 16px;">Visit http://localhost:8080/ to access our e-commerce website. You can browse our wide selection of products, add them to your cart, and checkout securely.</p>
 <p style="font-size: 16px;">To access the admin dashboard, go to http://localhost:8080/admin and login using your admin credentials.</p>
