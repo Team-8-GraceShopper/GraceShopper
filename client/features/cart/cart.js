@@ -93,6 +93,7 @@ const AllCarts = () => {
                         }
                       />
                       <button
+                        className="quantity-btn"
                         onClick={() =>
                           handleQuantityChange(id, carts[id], true)
                         }
@@ -100,13 +101,17 @@ const AllCarts = () => {
                         +
                       </button>
                       <button
+                        className="quantity-btn"
                         onClick={() =>
                           handleQuantityChange(id, carts[id], false)
                         }
                       >
                         -
                       </button>
-                      <button onClick={() => handleRemoveFromCart(id)}>
+                      <button
+                        className="remove-button"
+                        onClick={() => handleRemoveFromCart(id)}
+                      >
                         Remove
                       </button>
                     </div>
