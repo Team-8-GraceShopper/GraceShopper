@@ -29,13 +29,6 @@ Copy code
 <h2> Usage </h2>
 <p style="font-size: 16px;">Visit http://localhost:8080/ to access our e-commerce website. You can browse our wide selection of products, add them to your cart, and checkout securely.</p>
 <p style="font-size: 16px;">To access the admin dashboard, go to http://localhost:8080/admin and login using your admin credentials.</p>
-<h2> Contributing </h2>
-<p style="font-size: 16px;">We welcome contributions from anyone who is interested in improving our project. If you would like to contribute, please follow these steps:</p>
-<ol style="font-size: 14px;">
-  <li>Fork this repository</li>
-  <li>Create a new branch for your feature or bug fix</li>
-  <li>Commit your changes and push the branch to your fork</li>
-  <li>Create a pull request</li>
-</ol>
+
 <h2> License </h2>
 <p style="font-size: 16px;">This project is licensed under the MIT License. See the LICENSE file for details.</p>
