@@ -12,7 +12,7 @@ export const fetchAdminProducts = createAsyncThunk(
 export const addAdminProduct = createAsyncThunk(
   "admin/addProduct",
   async (product) => {
-    const { data } = await axios.post(`/api/admin/${id}`, product);
+    const { data } = await axios.post(`/api/admin`, product);
     return data;
   }
 );
