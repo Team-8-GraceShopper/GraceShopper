@@ -1,5 +1,8 @@
 body {
   font-family: sans-serif;
+  background-image: url("dockingBay.webp");
+  background-position: center;
+  color: yellow;
 }
 
 a {
