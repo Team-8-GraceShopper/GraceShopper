@@ -2,7 +2,7 @@
 
 <p style="font-size: 18px;">Welcome to our e-commerce website where you can purchase different starfighters and spaceships from the Star Wars Galaxy. Our website is built using React.js for the front-end and Node.js for the back-end, with JavaScript, HTML, and CSS.</p>
 <p> Access the Website here: https://team8-graceshopper.onrender.com/</p>
-<p>Created by Hussein Aligabi, Vincent Daquaro, and Devonte Fisher</p>
+<p>Created by Hussein Aligabi, Vincent Bridger, and Devonte Fisher</p>
 
 ## <h2> Features </h2>
 
